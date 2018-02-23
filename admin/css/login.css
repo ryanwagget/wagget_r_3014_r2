@@ -1,0 +1,52 @@
+body
+{
+  background: linear-gradient( #734b6d, #42275a) no-repeat;
+  height: 100vh;
+  text-align: center;
+  color: #fff;
+}
+
+form
+{
+  border: 1px solid #999999;
+  width: 26%;
+  margin-left: 37%;
+  background-color: #dddddd;
+  padding-top: 15px;
+  box-shadow: 0px 5px 7px #191919;
+  padding-bottom: 15px;
+  color: #000;
+  border-radius: 10px;
+}
+
+#password
+{
+  border-radius: 10px;
+  font-weight: bold;
+  height: 30px;
+  width: 80%;
+  margin-top: 5px;
+  margin-top: 20px;
+  font-size: 13px;
+}
+
+#username
+{
+  border-radius: 10px;
+  font-weight: bold;
+  height: 30px;
+  width: 80%;
+  font-size: 13px;
+}
+
+#submit
+{
+  margin-top: 15px;
+  height: 40px;
+  width: 80%;
+  background-color: #734b6d;
+  color: #fff;
+  font-weight: bold;
+  font-size: 15px;
+  border-radius: 10px;
+}
