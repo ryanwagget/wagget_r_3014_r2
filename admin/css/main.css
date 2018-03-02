@@ -10,3 +10,10 @@ h1
 {
   text-decoration: underline;
 }
+
+a
+{
+  color: #734b6d;
+  text-decoration: none;
+  border: 1px solid #fff;
+}

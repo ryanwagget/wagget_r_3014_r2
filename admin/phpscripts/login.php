@@ -14,22 +14,33 @@
        $id = $found_user['user_id'];
        $_SESSION['user_id'] = $id; // sessions can't be saved or cashed, deleted on page close. Temp file.
        $_SESSION['user_name'] = $found_user['user_fname'];
-       $_SESSION['final_login'] = $found_user['user_lastLog'];
+       //$_SESSION['final_login'] = $found_user['user_lastLog'];
 
        if(mysqli_query($link, $loginstring))
        {
-         $updatestring = "UPDATE tbl_user SET user_ip = '$ip' WHERE user_id={$id}";
+         $updatestring = "UPDATE tbl_user SET user_ip = '{$ip}' WHERE user_id={$id}";
+         $updateLastLog = "UPDATE tbl_user SET user_lastLog = NOW() WHERE user_id = {$id}";
          $updatequery = mysqli_query($link, $updatestring);
-         $updateTime = "UPDATE tbl_user SET user_lastLog = NOW() WHERE user_id={$id}";
-         $updatequery2 = mysqli_query($link, $updateTime);
-       } // updates the ip in the database.
-       //echo "Log in successful!";
-       redirect_to('admin_index.php');
+         $updatequery2 = mysqli_query($link, $updateLastLog);//DELETE OR NO????????????
 
-     }else{
-       $message = "Username and or password is incorrect";
-       return $message;
-     }
+         $firstLog = $found_user['user_firstLog'];
+         $_SESSION['user_firstLog'] = $firstLog;
+
+         if($firstLog === "no")
+         {
+         redirect_to('admin_index.php');
+         }else if($firstLog === 'yes')
+         {
+         redirect_to("admin_edituser.php");
+         }
+
+       } // updates the ip in the database.
+      //redirect_to("admin_index.php");
+    }else{
+      $message = "Username and or password is incorrect";
+      return $message;
+    }
+
      mysqli_close($link);
-   }
+ }
 ?>

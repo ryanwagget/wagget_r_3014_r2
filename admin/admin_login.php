@@ -3,7 +3,6 @@
    //error_reporting(E_ALL);
 
    require_once('phpscripts/config.php');
-
    $ip = $_SERVER['REMOTE_ADDR']; // gets the ip address of the computer accessing
    //echo $ip;
    if(isset($_POST['submit'])){

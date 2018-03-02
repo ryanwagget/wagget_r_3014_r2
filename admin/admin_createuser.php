@@ -1,7 +1,20 @@
 <?php
+//ini_set('display_errors',1);
+//error_reporting(E_ALL);
+
 
 	require_once('phpscripts/config.php');
 	confirm_logged_in();
+
+
+	//so my idea here was that if the current time equaled the time created+72 hours, then the submit button would redirect the user to admin_locked.php instead of admin_index.php
+	// $time = time()
+	// $maxTime = 2*24*60*60;
+	// if(($time - $timestamp) > $maxTime)
+	// {
+	// 	//echo "You've taken too long. You've been locked out.";
+	// 	redirect_to("admin_locked.php");
+	// }
 
 	if(isset($_POST['submit']))
 	{
@@ -14,12 +27,12 @@
 			{
 				$message = "Please select a user level";
 			}else{
-				//$encrypt = md5($password);
 				$sendMail = sendMail($email, $username, $password);
 				$result = createUser($fname, $username, $password, $email, $lvllist);
+				$message = $result;
 			}
 	}
-	echo $encrypt;
+	//echo $encrypt;
 ?>
 <!doctype html>
 <html>

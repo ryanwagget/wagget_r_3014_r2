@@ -31,9 +31,11 @@
   }
   ?>
 
-  <?php echo "<p>Your final login: {$_SESSION['final_login']}</p>"; ?>
+  <?php echo "<p>Your final login: {$_SESSION['user_lastLog']}</p>"; ?>
 
-  <a href="admin_createuser.php">Create User</a>
+  <a id="hi" href="admin_createuser.php">Create User</a>
+  <a href="admin_edituser.php">Edit User</a>
+	<a href="admin_deleteuser.php">Delete User</a>
 	<a href="phpscripts/caller.php?caller_id=logout">Sign Out</a>
 </body>
 </html>
